@@ -1,9 +1,9 @@
 import React from 'react';
 import { FileText, Mail } from 'lucide-react';
 
-// Correct way to import assets in src for Vite
-const cvUrl = new URL('../assets/CV_Sami_Mahdaoui.pdf', import.meta.url).href;
-const profileImage = new URL('../assets/image1.png', import.meta.url).href;
+// Chemins absolus pour les fichiers dans public/
+const cvUrl = '/CV_Sami_Mahdaoui.pdf';
+const profileImage = '/image1.png';
 
 interface HeroSectionProps {
   t: (key: string) => string;
@@ -12,7 +12,10 @@ interface HeroSectionProps {
 
 const HeroSection: React.FC<HeroSectionProps> = ({ t, scrollToSection }) => {
   return (
-    <section id="home" className="pt-20 pb-16 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 text-white">
+    <section
+      id="home"
+      className="pt-20 pb-16 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 text-white"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
@@ -28,15 +31,15 @@ const HeroSection: React.FC<HeroSectionProps> = ({ t, scrollToSection }) => {
               {t('heroDescription')}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <a 
-                href={cvUrl} 
+              <a
+                href={cvUrl}
                 download="CV_Sami_Mahdaoui.pdf"
                 className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 flex items-center justify-center space-x-2"
               >
                 <FileText className="w-5 h-5" />
                 <span>{t('downloadCV')}</span>
               </a>
-              <button 
+              <button
                 onClick={() => scrollToSection('contact')}
                 className="border-2 border-white/20 hover:bg-white hover:text-slate-900 text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 flex items-center justify-center space-x-2"
               >
