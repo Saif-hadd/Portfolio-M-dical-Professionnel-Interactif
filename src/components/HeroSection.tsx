@@ -1,9 +1,9 @@
 import React from 'react';
-import { FileText, Mail, Users } from 'lucide-react';
+import { FileText, Mail } from 'lucide-react';
 
 // Import du CV et de l'image depuis src/assets
-const cvUrl = new URL('../assets/CV_Sami_Mahdaoui.pdf', import.meta.url).href;
-const profileImage = new URL('../assets/image1.png', import.meta.url).href;
+import CV from '../assets/CV_Sami_Mahdaoui.pdf';
+import ProfileImg from '../assets/image1.png';
 
 interface HeroSectionProps {
   t: (key: string) => string;
@@ -15,6 +15,8 @@ const HeroSection: React.FC<HeroSectionProps> = ({ t, scrollToSection }) => {
     <section id="home" className="pt-20 pb-16 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          
+          {/* Texte & boutons */}
           <div className="text-center lg:text-left">
             <h1 className="text-4xl lg:text-6xl font-bold mb-4 bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent">
               {t('heroTitle')}
@@ -27,29 +29,29 @@ const HeroSection: React.FC<HeroSectionProps> = ({ t, scrollToSection }) => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <a 
-                href={cvUrl} 
+                href={CV} 
                 download="CV_Sami_Mahdaoui.pdf"
                 className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 flex items-center justify-center space-x-2"
               >
-                <FileText className="w-5 h-5 mr-2" />
-                {t('downloadCV')}
+                <FileText className="w-5 h-5" />
+                <span>{t('downloadCV')}</span>
               </a>
               <button 
                 onClick={() => scrollToSection('contact')}
                 className="border-2 border-white/20 hover:bg-white hover:text-slate-900 text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 flex items-center justify-center space-x-2"
               >
-                <Mail className="w-5 h-5 mr-2" />
-                {t('contactMe')}
+                <Mail className="w-5 h-5" />
+                <span>{t('contactMe')}</span>
               </button>
             </div>
           </div>
 
-          {/* Profile Image & Stats */}
+          {/* Image de profil & Stats */}
           <div className="relative">
             <div className="w-80 h-80 mx-auto rounded-full flex items-center justify-center shadow-2xl overflow-hidden">
-              <img src={profileImage} alt="Profil" className="w-full h-full object-cover" />
+              <img src={ProfileImg} alt="Profil" className="w-full h-full object-cover" />
             </div>
-            
+
             {/* Floating Stats */}
             <div className="absolute -bottom-8 -left-4 bg-white/95 backdrop-blur-md rounded-xl p-4 shadow-xl text-slate-800">
               <div className="text-2xl font-bold text-blue-600">6000+</div>
@@ -60,6 +62,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ t, scrollToSection }) => {
               <div className="text-sm">{t('yearsTitle')}</div>
             </div>
           </div>
+
         </div>
       </div>
     </section>
