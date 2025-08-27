@@ -1,8 +1,9 @@
 import React from 'react';
 import { FileText, Mail } from 'lucide-react';
 
-const cvUrl = '/assets/CV_Sami_Mahdaoui.pdf';
-const profileImage = '/assets/image1.png';
+// Import du CV et de l'image depuis src/assets
+import CV from '../assets/CV_Sami_Mahdaoui.pdf';
+import ProfileImg from '../assets/image1.png';
 
 interface HeroSectionProps {
   t: (key: string) => string;
@@ -14,7 +15,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ t, scrollToSection }) => {
     <section id="home" className="pt-20 pb-16 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          
+
           {/* Texte & boutons */}
           <div className="text-center lg:text-left">
             <h1 className="text-4xl lg:text-6xl font-bold mb-4 bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent">
@@ -28,7 +29,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ t, scrollToSection }) => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <a 
-                href={cvUrl} 
+                href={CV} 
                 download="CV_Sami_Mahdaoui.pdf"
                 className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 flex items-center justify-center space-x-2"
               >
@@ -48,7 +49,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ t, scrollToSection }) => {
           {/* Image de profil & Stats */}
           <div className="relative">
             <div className="w-80 h-80 mx-auto rounded-full flex items-center justify-center shadow-2xl overflow-hidden">
-              <img src={profileImage} alt="Profil" className="w-full h-full object-cover" />
+              <img src={ProfileImg} alt="Profil" className="w-full h-full object-cover" />
             </div>
 
             {/* Floating Stats */}
