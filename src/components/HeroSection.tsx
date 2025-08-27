@@ -3,7 +3,7 @@ import { FileText, Mail } from 'lucide-react';
 
 // Chemins absolus pour les fichiers dans public/
 const cvUrl = '/CV_Sami_Mahdaoui.pdf';
-const profileImage = '/image1.png';
+const profileImage = '/Image1.png';
 
 interface HeroSectionProps {
   t: (key: string) => string;
