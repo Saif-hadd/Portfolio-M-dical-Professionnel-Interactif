@@ -1,9 +1,9 @@
 import React from 'react';
 import { FileText, Mail } from 'lucide-react';
 
-// Import du CV et de l'image depuis src/assets
-import CV from '../assets/CV_Sami_Mahdaoui.pdf';
-import ProfileImg from '../assets/image1.png';
+// Correct way to import assets in src for Vite
+const cvUrl = new URL('../assets/CV_Sami_Mahdaoui.pdf', import.meta.url).href;
+const profileImage = new URL('../assets/image1.png', import.meta.url).href;
 
 interface HeroSectionProps {
   t: (key: string) => string;
@@ -29,7 +29,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ t, scrollToSection }) => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <a 
-                href={CV} 
+                href={cvUrl} 
                 download="CV_Sami_Mahdaoui.pdf"
                 className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 flex items-center justify-center space-x-2"
               >
@@ -49,7 +49,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ t, scrollToSection }) => {
           {/* Image de profil & Stats */}
           <div className="relative">
             <div className="w-80 h-80 mx-auto rounded-full flex items-center justify-center shadow-2xl overflow-hidden">
-              <img src={ProfileImg} alt="Profil" className="w-full h-full object-cover" />
+              <img src={profileImage} alt="Profil" className="w-full h-full object-cover" />
             </div>
 
             {/* Floating Stats */}
